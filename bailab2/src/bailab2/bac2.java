@@ -24,7 +24,7 @@ public class bac2 {
             double x = -b / (2 * a);
             System.out.println("Phuong trinh co nghiem kep: x = " + x);
         } else {
-            System.out.println("Phuong trinh vo1 nghiem");
+            System.out.println("Phuong trinh vo nghiem");
         }
         scanner.close();
     }
