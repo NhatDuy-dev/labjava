@@ -1,4 +1,4 @@
-package bailab3;
+    package bailab3;
 
 import java.util.Scanner;
 
