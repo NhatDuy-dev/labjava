@@ -19,7 +19,7 @@ public class processor {
             System.out.println("6. Thoat");
             System.out.print("Nhap lua chon: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Loai bo ky tu xuong dong
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
