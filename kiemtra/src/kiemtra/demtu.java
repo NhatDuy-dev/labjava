@@ -21,6 +21,6 @@ public class demtu {
                 tu = false;
             }
         }
-        System.out.println("Số từ trong chuỗi là: " + demtu);
+        System.out.println("So tu trong chuoi la: " + demtu);
     }
 }
