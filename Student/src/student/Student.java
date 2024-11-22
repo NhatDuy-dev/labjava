@@ -11,7 +11,7 @@ public class Student {
     String major;
     float gpa;
 
-    public void nhapThongTinSinhVien() {
+    public void enterStudentInfo() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhap Ma Sinh Vien: ");
         studentId = scanner.nextLine();
@@ -25,7 +25,7 @@ public class Student {
         gpa = scanner.nextFloat();
     }
 
-    public void hienThiThongTinSinhVien() {
+     public void displayStudentInfo() {
         System.out.println("Ma Sinh Vien: " + studentId);
         System.out.println("Ho Va Ten: " + fullName);
         System.out.println("Ngay Sinh: " + dateOfBirth);

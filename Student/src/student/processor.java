@@ -4,10 +4,10 @@ package student;
 import java.util.Scanner;
 
 public class processor {
-    public static void main(String[] args) {
-        StudentList danhSach = new StudentList();
+      public static void main(String[] args) {
+        StudentList studentList = new StudentList();
         Scanner scanner = new Scanner(System.in);
-        int luaChon;
+        int choice;
 
         do {
             System.out.println("He Thong Quan Ly Sinh Vien:");
@@ -15,56 +15,56 @@ public class processor {
             System.out.println("2. Hien Thi Tat Ca Sinh Vien");
             System.out.println("3. Tim Sinh Vien Theo ID");
             System.out.println("4. Xoa Sinh Vien Theo ID");
-            System.out.println("5. Sua Sinh Vien Theo ID");
+            System.out.println("5. Chinh Sua Sinh Vien Theo ID");
             System.out.println("6. Thoat");
             System.out.print("Nhap lua chon: ");
-            luaChon = scanner.nextInt();
+            choice = scanner.nextInt();
             scanner.nextLine(); // Loai bo ky tu xuong dong
 
-            switch (luaChon) {
+            switch (choice) {
                 case 1:
                     Student student = new Student();
-                    student.nhapThongTinSinhVien();
-                    danhSach.danhSachSinhVien.add(student);
+                    student.enterStudentInfo();
+                    studentList.studentList.add(student);
                     break;
                 case 2:
-                    danhSach.hienThiTatCaSinhVien();
+                    studentList.displayAllStudents();
                     break;
                 case 3:
                     System.out.print("Nhap Ma Sinh Vien Can Tim: ");
-                    String idCanTim = scanner.nextLine();
-                    Student sinhVienTimThay = danhSach.timSinhVienTheoId(idCanTim);
-                    if (sinhVienTimThay != null) {
-                        sinhVienTimThay.hienThiThongTinSinhVien();
+                    String idToFind = scanner.nextLine();
+                    Student foundStudent = studentList.findStudentById(idToFind);
+                    if (foundStudent != null) {
+                        foundStudent.displayStudentInfo();
                     } else {
                         System.out.println("Khong tim thay sinh vien.");
                     }
                     break;
                 case 4:
                     System.out.print("Nhap Ma Sinh Vien Can Xoa: ");
-                    String idCanXoa = scanner.nextLine();
-                    if (danhSach.xoaSinhVienTheoId(idCanXoa)) {
-                        System.out.println("Da xoa sinh vien thanh cong.");
+                    String idToDelete = scanner.nextLine();
+                    if (studentList.deleteStudentById(idToDelete)) {
+                        System.out.println("Xoa sinh vien thanh cong.");
                     } else {
                         System.out.println("Khong tim thay sinh vien.");
                     }
                     break;
                 case 5:
-                    System.out.print("Nhap Ma Sinh Vien Can Sua: ");
-                    String idCanSua = scanner.nextLine();
-                    if (danhSach.suaSinhVienTheoId(idCanSua)) {
-                        System.out.println("Da sua thong tin sinh vien thanh cong.");
+                    System.out.print("Nhap Ma Sinh Vien Can Chinh Sua: ");
+                    String idToEdit = scanner.nextLine();
+                    if (studentList.editStudentById(idToEdit)) {
+                        System.out.println("Chinh sua sinh vien thanh cong.");
                     } else {
                         System.out.println("Khong tim thay sinh vien.");
                     }
                     break;
                 case 6:
-                    System.out.println("Thoat chuong trinh...");
+                    System.out.println("Thoat...");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le! Vui long thu lai.");
             }
-        } while (luaChon != 6);
+        } while (choice != 6);
 
         scanner.close();
     }
